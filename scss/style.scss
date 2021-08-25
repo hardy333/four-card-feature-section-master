@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --Red: hsl(0, 78%, 62%);
+    --Cyan: hsl(180, 62%, 55%);
+    --Orange: hsl(34, 97%, 64%);
+    --Blue: hsl(212, 86%, 64%);
+
+    // ### Neutral
+    --Very-Dark-Blue: hsl(234, 12%, 34%);
+    --Grayish-Blue: hsl(229, 6%, 66%);
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+
+    --text-color-1: var(--Very-Dark-Blue);
+    --text-color-2: var(--Grayish-Blue);
+
+    --bg-color-1: var(--Very-Light-Gray);
+    --bg-color-2: #fff;
+}
+html{
+    font-size: 62.5%;
+
+}
+
+body{
+    display: 100%;
+    min-height: 100vh;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+
+    background: var(--bg-color-1);
+}
+
+h2,h3{
+    color: var(--text-color-1);
+}
+p{
+    color: var(--text-color-2);
+}
+
+// ************************************************
+// ************************************************
+// ************************************************
+
+
+.hero{
+    width: 100%;
+    padding: 2rem 2rem 0rem;
+
+    &__header{
+        text-align: center;
+    }
+    &__heading-1{
+        font-weight: 200;
+    }
+    
+    &__paragraph{
+        max-width: 50rem;
+        margin: 1.5rem auto 4rem;
+    }
+}
+.cards-wrapper{
+    overflow: hidden;
+    padding-bottom: 2rem;
+
+}
+.cards{
+    width: 100%;
+    max-width: 110rem;
+    margin: 0rem auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 25rem;
+
+    gap: 2rem;
+
+
+}
+.card{
+    padding: 2rem;
+    height: 25rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    border-top: 4px solid transparent;
+    background-color: var(--bg-color-2);
+    box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    flex-direction: column;
+    
+    & img{
+        margin: auto 0 0 auto;
+
+    }
+    &__paragraph{
+        margin: 1rem 0rem;
+    }
+  
+}
+.card--cyan{
+    border-top-color: var(--Cyan);
+    grid-row: span 2;
+    align-self: center;
+
+}
+.card--red{
+    border-top-color: var(--Red);
+
+}
+.card--blue{
+    border-top-color: var(--Blue);
+    grid-row: span 2;
+    align-self: center;
+}
+.card--orange{
+    border-top-color: var(--Orange);
+
+}
+
+@media screen and (max-width: 1000px) {
+    .cards{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(3, 25rem);
+        justify-items: end;
+    }
+    .card{
+        align-self: center;
+        width: 100%;
+        max-width: 35rem;
+
+    }
+    .card--cyan{
+        grid-row: span 1;
+        grid-column: span 2;
+        justify-self: center;
+    }
+ 
+    .card--blue{
+        grid-row: span 1;
+        justify-self: start;
+    }
+
+    .card--orange{
+        grid-column: span 2;
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .cards{
+        grid-template-columns: 1fr;
+    }
+    .card{
+        width: 100%;
+        max-width: 35rem;
+        grid-row: span 1;
+        grid-column: span 1;
+        justify-self: center;
+
+    }
+   
+}
+
+
+
+// canvas particle styles
+
+.canvas-container{
+    position: relative;
+
+}
+.canvas{
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.ripple-element{
+    z-index: 0;
+}
+
+.ripple{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    padding-bottom: 0%;
+    border-radius: 50%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    animation: rippleEffect 0.6s linear;
+    
+
+}
+
+@keyframes rippleEffect {
+    to{
+        width: 200%;
+        padding-bottom: 200%;
+        opacity: 0;
+    }
+    
+}
+
